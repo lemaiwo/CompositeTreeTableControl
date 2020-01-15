@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:t="sap.ui.table"
+	xmlns:u="sap.ui.unified">
+	<t:TreeTable id="innerTreeTable" selectionMode="MultiToggle" enableSelectAll="false" ariaLabelledBy="title">
+		<t:extension>
+			<OverflowToolbar>
+				<Title id="title" text="Clothing"/>
+				<ToolbarSpacer/>
+				<Button text="Collapse all" press=".onCollapseAll"/>
+				<Button text="Collapse selection" press=".onCollapseSelection"/>
+				<Button text="Expand first level" press=".onExpandFirstLevel"/>
+				<Button text="Expand selection" press=".onExpandSelection"/>
+			</OverflowToolbar>
+		</t:extension>
+	</t:TreeTable>
+</core:FragmentDefinition>

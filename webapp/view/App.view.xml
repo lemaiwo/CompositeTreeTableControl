@@ -1,0 +1,38 @@
+<mvc:View controllerName="be.wl.CompositeControlExample.controller.App" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:cust="be.wl.CompositeControlExample.control" xmlns:t="sap.ui.table" xmlns:u="sap.ui.unified">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+						<cust:TreeWithButtons id="TreeTableBasic" rows="{path:'/catalog/clothing', parameters: {arrayNames:['categories']}}"
+							selectionMode="MultiToggle" enableSelectAll="false" ariaLabelledBy="title">
+							<cust:columns>
+								<t:Column width="13rem">
+									<Label text="Categories"/>
+									<t:template>
+										<Text text="{name}" wrapping="false"/>
+									</t:template>
+								</t:Column>
+								<t:Column width="9rem">
+									<Label text="Price"/>
+									<t:template>
+										<u:Currency value="{amount}" currency="{currency}"/>
+									</t:template>
+								</t:Column>
+								<t:Column width="11rem">
+									<Label text="Size"/>
+									<t:template>
+										<Select items="{path: '/sizes', templateShareable: true}" selectedKey="{size}" visible="{= !!${size}}" forceSelection="false">
+											<core:Item key="{key}" text="{value}"/>
+										</Select>
+									</t:template>
+								</t:Column>
+							</cust:columns>
+						</cust:TreeWithButtons>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
