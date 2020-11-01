@@ -5,8 +5,7 @@
 			<pages>
 				<Page id="page" title="{i18n>title}">
 					<content>
-						<cust:TreeWithButtons id="TreeTableBasic" rows="{path:'/catalog/clothing', parameters: {arrayNames:['categories']}}"
-							selectionMode="MultiToggle" enableSelectAll="false" ariaLabelledBy="title">
+						<cust:TreeWithButtons id="TreeTableBasic" rows="{path:'/catalog/clothing', parameters: {arrayNames:['categories']}}" editable="true" add=".onAddLine" delete=".onDeleteLine" move=".onMoveRow" selectionMode="MultiToggle" enableSelectAll="false" ariaLabelledBy="title">
 							<cust:columns>
 								<t:Column width="13rem">
 									<Label text="Categories"/>
