@@ -1,19 +1,32 @@
 {
-  "name": "CompositeControlExample",
-  "version": "0.0.1",
-  "description": "",
-  "private": true,
-  "devDependencies": {
-    "@ui5/cli": "1.7.0",
-    "@sap/ui5-builder-webide-extension": "1.0.9"
-  },
-  "scripts": {
-    "build": "ui5 build --include-task=generateManifestBundle generateCachebusterInfo",
-    "start": "ui5 serve"
-  },
-  "ui5": {
-    "dependencies": [
-      "@sap/ui5-builder-webide-extension"
-    ]
-  }
+	"name": "CompositeControlExample",
+	"version": "0.0.1",
+	"description": "",
+	"private": true,
+	"main": "webapp/index.html",
+	"devDependencies": {
+		"rimraf": "3.0.0",
+		"@ui5/cli": "2.0.3",
+		"@ui5/fs": "2.0.1",
+		"@ui5/logger": "2.0.0",
+		"@sap/ux-ui5-tooling": "1"
+	},
+	"scripts": {
+		"start": "fiori run --open index.html",
+		"start-local": "fiori run --config ./ui5-local.yaml --open index.html",
+		"unit-tests": "fiori run --open test/unit/unitTests.qunit.html",
+		"int-tests": "fiori run --open test/integration/opaTests.qunit.html",
+		"build": "rimraf dist && ui5 build -a --include-task=generateManifestBundle generateCachebusterInfo",
+		"deploy": "fiori add deploy-config"
+	},
+	"remarkConfig": {
+		"plugins": [
+			"remark-preset-lint-consistent"
+		]
+	},
+	"ui5": {
+		"dependencies": [
+			"@sap/ux-ui5-tooling"
+		]
+	}
 }

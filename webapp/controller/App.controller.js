@@ -3,7 +3,6 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel"
 ], function (Controller, JSONModel) {
 	"use strict";
-
 	return Controller.extend("be.wl.CompositeControlExample.controller.App", {
 		onInit: function () {
 			var oModel = new JSONModel("./model/Clothing.json");
@@ -12,7 +11,6 @@ sap.ui.define([
 		onAddLine: function (oEvent) {
 			var treeModel = this.getView().getModel();
 			var path = oEvent.getParameter("selectedPath");
-			
 			var rowData = treeModel.getProperty(path) || [];
 			rowData.push({});
 			treeModel.setProperty(path, rowData);
